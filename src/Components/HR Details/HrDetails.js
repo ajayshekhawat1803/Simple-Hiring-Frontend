@@ -18,6 +18,7 @@ const HrDetails = () => {
         })
         response = response.data;
         if (response.token) {
+            localStorage.setItem("RecruiterInfo", JSON.stringify(response))
             navigate("/home")
         }
     }
