@@ -1,14 +1,26 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
 import './HrDetails.css'
 
 const HrDetails = () => {
     const [HrName, setHrName] = useState("")
     const [HrEmail, setHrEmail] = useState("")
     const [HrCompany, setCompany] = useState("")
+    const navigate = useNavigate()
+    let Time = new Date()
+    Time = Time.toString().split("GMT")[0]
 
-    const HandleSubmit = () => {
-        console.log(HrName,HrEmail,HrCompany);
-     }
+
+    const HandleSubmit = async () => {
+        let response = await axios.post("http://localhost:4000/recruiter/info", {
+            HrName, HrEmail, HrCompany, Time
+        })
+        response = response.data;
+        if (response.token) {
+            navigate("/home")
+        }
+    }
     return (
         <div className='Hr-Details-cont'>
             <form
