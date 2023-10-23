@@ -21,7 +21,7 @@ const Home = () => {
                     <div className='btm-part'>
                         <h3>Full Stack Developer</h3>
                         <p>Heloo this is full stack devigi hudf uguf ugusrfj ugrfu nugeufdba iuaghfuamu ugrfu huagrf uhufr </p>
-                        <Link to="/Full-stack">Show Candidates</Link>
+                        <Link to="/Show-Candidates/Full-stack">Show Candidates</Link>
                     </div>
                 </div>
                 <div className='cat-box'>
