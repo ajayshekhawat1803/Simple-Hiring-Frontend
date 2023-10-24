@@ -48,7 +48,66 @@ const CandidateData = () => {
                         </div>
                     </div>
                     <div className='btm'>
-                        <h2>Qualifications</h2>
+                        <div className='projects'>
+                            <h2>Projects</h2>
+                            {
+                                CandidateData.projects ?
+                                    CandidateData.projects.map((project) => {
+                                        return (
+                                            <a href={project.projectLink}>{project.projectName}</a>
+                                        )
+                                    })
+                                    : ""
+                            }
+                        </div>
+                        <div className='Qualifications'>
+                            <h1>Qualifications</h1>
+                            <div>
+                                <h2>10th</h2>
+                                <div className='qual-cont'>
+                                    <h3>School Name</h3>
+                                    <h3>{CandidateData.qualifications ? CandidateData.qualifications.secondary.schoolName10 : ""}</h3>
+                                </div>
+                                <div className='qual-cont'>
+                                    <h3>Passing Year</h3>
+                                    <h3>{CandidateData.qualifications ? CandidateData.qualifications.secondary.year10 : ""}</h3>
+                                </div>
+                                <div className='qual-cont'>
+                                    <h3>Percentage Achieved</h3>
+                                    <h3>{CandidateData.qualifications ? CandidateData.qualifications.secondary.percentage10 : ""}%</h3>
+                                </div>
+                            </div>
+                            <div>
+                                <h2>12th</h2>
+                                <div className='qual-cont'>
+                                    <h3>School Name</h3>
+                                    <h3>{CandidateData.qualifications ? CandidateData.qualifications.seniorSecondary.schoolName12 : ""}</h3>
+                                </div>
+                                <div className='qual-cont'>
+                                    <h3>Passing Year</h3>
+                                    <h3>{CandidateData.qualifications ? CandidateData.qualifications.seniorSecondary.year12 : ""}</h3>
+                                </div>
+                                <div className='qual-cont'>
+                                    <h3>Percentage Achieved</h3>
+                                    <h3>{CandidateData.qualifications ? CandidateData.qualifications.seniorSecondary.percentage12 : ""}%</h3>
+                                </div>
+                            </div>
+                            <div>
+                                <h2>Graduation</h2>
+                                <div className='qual-cont'>
+                                    <h3>College Name</h3>
+                                    <h3>{CandidateData.qualifications ? CandidateData.qualifications.graduation.collegeName : ""}</h3>
+                                </div>
+                                <div className='qual-cont'>
+                                    <h3>Passing Year</h3>
+                                    <h3>{CandidateData.qualifications ? CandidateData.qualifications.graduation.year : ""}</h3>
+                                </div>
+                                <div className='qual-cont'>
+                                    <h3>Percentage Achieved</h3>
+                                    <h3>{CandidateData.qualifications ? CandidateData.qualifications.graduation.percentage : ""}%</h3>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

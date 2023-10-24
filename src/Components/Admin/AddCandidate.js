@@ -19,6 +19,18 @@ const AddCandidate = () => {
   const [year, setYear] = useState("")
   const [percentage, setPercentage] = useState("")
 
+
+  // Code for Dynamic Projects 
+  const [projects, setProjects] = useState([{ projectName: '', projectLink: '' }]);
+  const addProject = () => {
+    setProjects([...projects, { projectName: '', projectLink: '' }]);
+  };
+  const handleProjectChange = (value, index, field) => {
+    const updatedProjects = [...projects];
+    updatedProjects[index][field] = value;
+    setProjects(updatedProjects);
+  };
+
   const HandleAddCandidate = async () => {
     // console.log({
     //   name: name,
@@ -39,6 +51,7 @@ const AddCandidate = () => {
         skills: skills,
         mobile: mobile,
         profilePic: profilePic,
+        projects: projects,
         qualifications: {
           secondary: { schoolName10, year10, percentage10 },
           seniorSecondary: { schoolName12, year12, percentage12 },
@@ -60,10 +73,7 @@ const AddCandidate = () => {
   return (
     <div className='addCandidate'>
       <h2>Add Candidate</h2>
-      <form onSubmit={(e) => {
-        e.preventDefault()
-        HandleAddCandidate()
-      }}
+      <form onSubmit={(e) => { e.preventDefault(); }}
         encType='multipart/form-data'>
         <div className='input-cont'>
           <label>Name</label>
@@ -80,9 +90,7 @@ const AddCandidate = () => {
             value={mobile} onChange={(e) => setMobile(e.target.value)} />
         </div>
         <div className='input-cont'>
-          <label>category</label>
-          {/* <input type='text' placeholder='Category of Candidate' value={category} onChange={(e) => setCategory(e.target.value)} /> */}
-          <select value={category} onChange={(e) => setCategory(e.target.value)}>
+          <label>category</label><select value={category} onChange={(e) => setCategory(e.target.value)}>
             <option value="">Not Selected</option>
             <option value="Frontend Developer">Frontend Developer</option>
             <option value="Backend Developer">Backend Developer</option>
@@ -100,6 +108,31 @@ const AddCandidate = () => {
           <label>ProfilePic</label>
           <input type='file' onChange={(e) => setProfilePic(e.target.files[0])} />
         </div>
+
+        <div>
+          <h3>Add Projects</h3>
+          {projects.map((project, index) => {
+            return (
+              <div key={index}>
+                <input
+                  type="text"
+                  placeholder="Project Name"
+                  value={project.projectName}
+                  onChange={(e) => handleProjectChange(e.target.value, index, 'projectName')}
+                />
+                <input
+                  type="text"
+                  placeholder="Project Link"
+                  value={project.projectLink}
+                  onChange={(e) => handleProjectChange(e.target.value, index, 'projectLink')}
+                />
+              </div>
+            )
+          })}
+          <button onClick={addProject}>Add New Project</button>
+          <button onClick={() => console.log(projects)}>Show Data</button>
+        </div>
+
         <h2>Qualification Details</h2>
         <h4>10th</h4>
         <div className='input-cont'>
@@ -140,7 +173,7 @@ const AddCandidate = () => {
           <label>Percentage</label>
           <input type='number' placeholder='Percentage Achieved' value={percentage} onChange={(e) => setPercentage(e.target.value)} />
         </div>
-        <input type='submit' value="Add Candidate" />
+        <input type='submit' value="Add Candidate" onClick={HandleAddCandidate} />
       </form>
     </div>
   )
