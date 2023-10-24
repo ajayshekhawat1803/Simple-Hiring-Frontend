@@ -11,7 +11,6 @@ const AddCandidate = () => {
   const HandleAddCandidate = async () => {
     let response = await axios.post("http://localhost:4000/admin/add-candidate", { name, email, category, skills })
     response = response.data
-    // console.log(response);
     if (response._id) {
       alert("New Candidate has been added to Database")
     } else {
