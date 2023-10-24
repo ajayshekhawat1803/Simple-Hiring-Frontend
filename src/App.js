@@ -4,15 +4,29 @@ import Header from './Components/Header/Header';
 import HrDetails from './Components/HR Details/HrDetails';
 import Home from './Components/Home/Home';
 import ShowCandidates from './Components/Show Candidates/ShowCandidates';
+import AdminLogin from './Components/Admin/AdminLogin';
+import AdminMain from './Components/Admin/AdminMain';
+import AddCandidate from './Components/Admin/AddCandidate';
+import EditCandidate from './Components/Admin/EditCandidate';
+import VisitedRecruiters from './Components/Admin/VisitedRecruiters';
+
 function App() {
   return (
     <>
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path='/' element={<HrDetails/>} />
+          <Route path='/' element={<HrDetails />} />
           <Route path='/home' element={<Home />} />
           <Route path='/Show-Candidates' element={<ShowCandidates />} />
+
+          {/* Admin Routes  */}
+          <Route path='/adminLogin' element={<AdminLogin />} />
+          <Route path='/admin/' element={<AdminMain />} >
+            <Route path='/admin/add-candidate' element={<AddCandidate />} />
+            <Route path='/admin/edit-candidate' element={<EditCandidate />} />
+            <Route path='/admin/visited-recruiters' element={<VisitedRecruiters />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </>
