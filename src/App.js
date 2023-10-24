@@ -9,6 +9,7 @@ import AdminMain from './Components/Admin/AdminMain';
 import AddCandidate from './Components/Admin/AddCandidate';
 import EditCandidate from './Components/Admin/EditCandidate';
 import VisitedRecruiters from './Components/Admin/VisitedRecruiters';
+import CandidateData from './Components/Candidate Data/CandidateData';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path='/' element={<HrDetails />} />
           <Route path='/home' element={<Home />} />
           <Route path='/Show-Candidates' element={<ShowCandidates />} />
+          <Route path='/candidate/:id' element={<CandidateData />} />
 
           {/* Admin Routes  */}
           <Route path='/adminLogin' element={<AdminLogin />} />

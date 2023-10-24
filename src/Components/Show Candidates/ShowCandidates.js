@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 import './ShowCandidates.css'
 
 
 
 const ShowCandidates = () => {
     const [Allcandidates, setAllCandidates] = useState([])
-
+    const navigate = useNavigate()
     useEffect(() => {
         getCandidateDetails()
     }, []);
@@ -49,7 +50,7 @@ const ShowCandidates = () => {
                                             })
                                         }
                                     </ul>
-                                    <button>Click here to see all Details</button>
+                                    <button onClick={() =>navigate(`/candidate/${candidate._id}`)}>Click here to see all Details</button>
                                 </div>
                             </div>
                         )

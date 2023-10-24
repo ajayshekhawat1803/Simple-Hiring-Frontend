@@ -72,7 +72,9 @@
 
 .show .candidate .left h2 {
     font-size: 1.5rem;
-    margin: 10px;
+    margin: 10px auto;
+    width: fit-content;
+    border-bottom: 3px solid red;
 }
 
 .show .candidate .right {

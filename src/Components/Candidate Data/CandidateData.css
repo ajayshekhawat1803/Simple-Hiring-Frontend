@@ -1,0 +1,86 @@
+.candidatePage {
+    width: 100%;
+    height: 800px;
+    background-color: red;
+    padding: 50px;
+}
+
+.candidatePage .container {
+    width: 90%;
+    max-width: 850px;
+    height: 500px;
+    background-color: #fff;
+    margin: auto;
+    border-radius: 12px;
+    padding: 40px;
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.candidatePage .container #name {
+    -webkit-text-stroke: 1px blue;
+    width: fit-content;
+    border-bottom: 5px solid rgb(183, 5, 248);
+}
+
+.candidatePage .data {
+    border: 1px solid;
+    width: 100%;
+    padding: 20px;
+}
+.candidatePage .data .top{
+    border: 1px solid;
+    width: 100%;
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.candidatePage .data img {
+    border: 1px solid;
+    width: 40%;
+    height: 250px;
+}
+
+.candidatePage .data .top>div {
+    border: 1px solid;
+    width: 60%;
+    height: 250px;
+    padding: 20px;
+}
+
+.candidatePage .data .input-cont {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.candidatePage .data #skillSection {
+    display: flex;
+    align-items: flex-start;
+}
+
+.candidatePage .data .input-cont ul {
+    flex: 1;
+    padding-left: 20px;
+}
+
+.candidatePage .data .input-cont li {
+    font-weight: bold;
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.candidatePage .data .input-cont h3 {
+    min-width: 130px;
+}
+
+.candidatePage .data .input-cont h2 {
+    flex: 1;
+    text-align: center;
+    text-shadow: 0px 0px 10px green;
+    color: #333;
+}
