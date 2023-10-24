@@ -1,10 +1,15 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 
 const VisitedRecruiters = () => {
+    const [Recruiters, setRecruiters] = useState([])
+    useEffect(() => {
+        let result = axios.get("")
+    }, [])
+
     return (
-        <div>
-            VisitedRecruiters
-            VisitedRecruiters
+        <div className='visitedRecruiters'>
+
         </div>
     )
 }

@@ -7,14 +7,15 @@ const CandidateData = () => {
     useEffect(() => {
         getCandidateData()
     }, [])
+
     const getCandidateData = async () => {
         const Candidate_Id = window.location.href.split("/candidate/")[1]
         let response = await axios.get(`http://localhost:4000/home/candidate/${Candidate_Id}`)
         response = response.data
         setCandidateData(response[0])
-        console.log(response);
     }
-
+    const subject = 'Regarding Job - Scheduling Interview';
+    const message = "Hello !! I have seen your Profile on your FSL portal, Your Projects are really Good , Will you be abke for an Interview in the next 2-3 Days"
     return (
         <div className='candidatePage'>
             <div className='container'>
@@ -54,7 +55,7 @@ const CandidateData = () => {
                                 CandidateData.projects ?
                                     CandidateData.projects.map((project) => {
                                         return (
-                                            <a href={project.projectLink}>{project.projectName}</a>
+                                            <a href={project.projectLink} target='_blank'>{project.projectName}</a>
                                         )
                                     })
                                     : ""
@@ -107,6 +108,12 @@ const CandidateData = () => {
                                     <h3>{CandidateData.qualifications ? CandidateData.qualifications.graduation.percentage : ""}%</h3>
                                 </div>
                             </div>
+                        </div>
+                        <div className='Contact'>
+                            <a href={`https://wa.me/+91${CandidateData.mobile}?text=${encodeURIComponent(message)}`} target='_blank'>Whatsapp</a>
+                            <a href={`mailto:${CandidateData.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`} target='_blank'>Gmail</a>
+                            <a href={CandidateData.linkedIn} target='_blank'>Linked In</a>
+                            <a href={CandidateData.github} target='_blank'>GitHUb</a>
                         </div>
                     </div>
                 </div>

@@ -6,32 +6,46 @@ import './ShowCandidates.css'
 
 
 const ShowCandidates = () => {
-    const [Allcandidates, setAllCandidates] = useState([])
+    const [AllCandidates, setAllCandidates] = useState([])
+    const [ShowCandidates, setShowCandidates] = useState([])
+    const [category, setCategory] = useState("")
     const navigate = useNavigate()
+
     useEffect(() => {
         getCandidateDetails()
+        console.log(category);
     }, []);
+    useEffect(() => {
+        setShowCandidates(category == "All" ?
+            AllCandidates
+            : AllCandidates.filter((candidate) => {
+                return candidate.category == category ? candidate : null
+            })
+        )
+    }, [category])
 
     const getCandidateDetails = async () => {
         let Response = await axios.get("http://localhost:4000/home/all-candidates")
         Response = Response.data
         setAllCandidates(Response)
+        setCategory(window.location.href.split("/Show-Candidates/")[1])
     }
 
     return (
         <div className='show'>
             <div className='cat-cont'>
                 <label htmlFor='category'>Category</label>
-                <select>
-                    <option value="">All </option>
-                    <option value="Frontend">Frontend Developers </option>
-                    <option value="Backend">Backend Developers </option>
-                    <option value="FullStack">Full Stack Developers </option>
+                <select value={category} onChange={(e) => { setCategory(e.target.value) }}>
+                    <option value="All">All </option>
+                    <option value="Frontend-Developers">Frontend Developers</option>
+                    <option value="Backend-Developers">Backend Developers </option>
+                    <option value="Full-Stack-Developers">Full Stack Developers</option>
+                    <option value="Ui-Ux-Designers">UI/UX Designers</option>
                 </select>
             </div>
             <div className='candidates'>
                 {
-                    Allcandidates.map((candidate) => {
+                    ShowCandidates.map((candidate) => {
                         return (
                             <div className='candidate' key={candidate._id}>
                                 <div className='left'>
@@ -43,9 +57,9 @@ const ShowCandidates = () => {
                                     <h4>Top Skills ⬇️</h4>
                                     <ul>
                                         {
-                                            candidate.skills.slice(0, 4).map((skill) => {
+                                            candidate.skills.slice(0, 4).map((skill, index) => {
                                                 return (
-                                                    <li>{skill}</li>
+                                                    <li key={index}>{skill}</li>
                                                 )
                                             })
                                         }

@@ -19,7 +19,7 @@ function App() {
         <Routes>
           <Route path='/' element={<HrDetails />} />
           <Route path='/home' element={<Home />} />
-          <Route path='/Show-Candidates' element={<ShowCandidates />} />
+          <Route path='/Show-Candidates/:Category' element={<ShowCandidates />} />
           <Route path='/candidate/:id' element={<CandidateData />} />
 
           {/* Admin Routes  */}
