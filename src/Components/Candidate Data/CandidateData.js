@@ -21,7 +21,11 @@ const CandidateData = () => {
                 <h2 id='name'>{CandidateData.name}</h2>
                 <div className='data'>
                     <div className='top'>
-                        <img />
+                        <img
+                            src={CandidateData.profilePic ?
+                                `http://localhost:4000/uploads/Candidates/${CandidateData.profilePic.filename}`
+                                : ""
+                            } alt='Failed to Load Image' />
                         <div>
                             <div className='input-cont'>
                                 <h3>Category</h3>
@@ -44,7 +48,7 @@ const CandidateData = () => {
                         </div>
                     </div>
                     <div className='btm'>
-                            <h2>Qualifications</h2>
+                        <h2>Qualifications</h2>
                     </div>
                 </div>
             </div>
