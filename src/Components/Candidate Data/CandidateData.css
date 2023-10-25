@@ -1,19 +1,20 @@
 .candidatePage {
     width: 100%;
-    /* height: 800px; */
-    background-color: red;
-    padding: 50px;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://images.unsplash.com/photo-1554774853-b415df9eeb92?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 100px 50px 50px;
 }
 
 .candidatePage .container {
     width: 90%;
     max-width: 850px;
-    /* height: 500px; */
-    background-color: #fff;
+    background-color: rgba(0, 0, 0, 0.4);
     margin: auto;
     border-radius: 12px;
     padding: 40px;
-    color: #000;
+    color: #FFF;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -23,28 +24,28 @@
     -webkit-text-stroke: 1px blue;
     width: fit-content;
     border-bottom: 5px solid rgb(183, 5, 248);
+    margin-bottom: 15px;
 }
 
 .candidatePage .data {
-    border: 1px solid;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
     width: 100%;
-    padding: 20px;
 }
-.candidatePage .data .top{
-    border: 1px solid;
+
+.candidatePage .data .top {
     width: 100%;
     display: flex;
     margin-bottom: 20px;
 }
 
 .candidatePage .data img {
-    border: 1px solid;
     width: 40%;
     height: 250px;
 }
 
 .candidatePage .data .top>div {
-    border: 1px solid;
     width: 60%;
     height: 250px;
     padding: 20px;
@@ -69,7 +70,7 @@
 
 .candidatePage .data .input-cont li {
     font-weight: bold;
-    color: #666;
+    color: #aaa;
     font-size: 1.1rem;
     margin-bottom: 5px;
 }
@@ -82,19 +83,162 @@
     flex: 1;
     text-align: center;
     text-shadow: 0px 0px 10px green;
-    color: #333;
+    text-wrap: nowrap;
+    color: #fff;
 }
 
-.candidatePage .data .btm .qual-cont{
+.candidatePage .data .btm .qual-cont {
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     gap: 20px;
+    margin-bottom: 10px;
 }
-.candidatePage .data .btm>div{
+
+.candidatePage .data .btm>div {
     margin: 20px;
 }
-.candidatePage .data .btm .qual-cont h3:first-child{
+
+.candidatePage .data .btm>div>h1 {
+    width: fit-content;
+    margin-bottom: 10px;
+    text-decoration: underline;
+    color: aqua;
+    font-size: 1.7rem;
+}
+
+.candidatePage .data .btm>div>h1>span {
+    text-decoration: underline;
+    color: red;
+    font-size: 1.5rem;
+    text-shadow: 1px 1px 2px white;
+    text-wrap: nowrap;
+}
+
+.candidatePage .data .btm .qual-cont h3:first-child {
     min-width: 200px;
-    color: #555;
+    color: #f3fff1;
     font-size: 1rem;
+}
+
+.candidatePage .btm .projects {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.candidatePage .btm .projects a {
+    display: block;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: blue;
+}
+
+.candidatePage .btm .Qualifications>div>h2 {
+    text-decoration: underline;
+    margin-bottom: 5px;
+}
+
+.candidatePage .btm .Qualifications>div {
+    margin-bottom: 5px;
+}
+
+.candidatePage .btm .Contact>div {
+    display: flex;
+    width: 100%;
+    max-width: 600px;
+    justify-content: space-evenly;
+}
+
+.candidatePage .btm .Contact a {
+    /* background-color: rgb(126, 126, 244); */
+    background: linear-gradient(45deg, rgb(106, 106, 245), rgb(248, 97, 97));
+    padding: 8px 20px;
+    border-radius: 5px;
+    color: #fff;
+}
+
+
+@media (max-width:960px) {
+    .candidatePage {
+        padding: 100px 10px 50px;
+    }
+    .Qualifications .qual-cont h3{
+        font-size: 1rem;
+    } 
+}
+
+@media (max-width:870px) {
+    .candidatePage {
+        padding: 100px 10px 50px;
+    }
+
+    .candidatePage .data .top {
+        flex-direction: column;
+    }
+
+    .candidatePage .data .top>div {
+        height: unset;
+        padding: 20px 20px 0px;
+    }
+
+    .candidatePage .data img {
+        width: 100%;
+        height: 500px;
+    }
+    .candidatePage .data .btm .qual-cont {
+        flex-direction: column;
+        gap: 0px;
+    }
+    .candidatePage .data .btm .qual-cont h3:first-child {
+        color: #e8fece;
+    }
+    .candidatePage .btm .Contact>div {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+        margin-top: 25px;
+    }
+}
+
+@media (max-width:670px) {
+    .candidatePage .data img {
+        width: 100%;
+        height: 300px;
+    }
+
+    .candidatePage .data .top>div {
+        width: 100%;
+    }
+}
+
+@media (max-width:570px) {
+    #CategoryTag {
+        font-size: 1.3rem;
+    }
+
+    .candidatePage .data .input-cont {
+        align-items: flex-start;
+        gap: 5px;
+        flex-direction: column;
+    }
+
+    #CatTag {
+        display: none;
+    }
+}
+@media (max-width:450px) {
+    .candidatePage .data img {
+        width: 100%;
+        height: 250px;
+    }
+    .candidatePage .container {
+        width: 97%;
+        padding: 40px 20px;
+    }
+    .candidatePage .btm .Qualifications>div>h2 {
+        margin-bottom: 10px;
+    }
+    h3 {
+        font-size: 0.8rem;
+    }
 }

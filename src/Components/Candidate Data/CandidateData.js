@@ -29,8 +29,8 @@ const CandidateData = () => {
                             } alt='Failed to Load Image' />
                         <div>
                             <div className='input-cont'>
-                                <h3>Category</h3>
-                                <h2>{CandidateData.category}</h2>
+                                <h3 id='CatTag'>Category</h3>
+                                <h2 id='CategoryTag'>{CandidateData.category}</h2>
                             </div>
                             <div className='input-cont' id='skillSection'>
                                 <h3>Top Skills</h3>
@@ -50,7 +50,7 @@ const CandidateData = () => {
                     </div>
                     <div className='btm'>
                         <div className='projects'>
-                            <h2>Projects</h2>
+                            <h1>Projects</h1>
                             {
                                 CandidateData.projects ?
                                     CandidateData.projects.map((project) => {
@@ -110,10 +110,13 @@ const CandidateData = () => {
                             </div>
                         </div>
                         <div className='Contact'>
-                            <a href={`https://wa.me/+91${CandidateData.mobile}?text=${encodeURIComponent(message)}`} target='_blank'>Whatsapp</a>
-                            <a href={`mailto:${CandidateData.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`} target='_blank'>Gmail</a>
-                            <a href={CandidateData.linkedIn} target='_blank'>Linked In</a>
-                            <a href={CandidateData.github} target='_blank'>GitHUb</a>
+                            <h1>Contact <span>({CandidateData.name})</span></h1>
+                            <div>
+                                <a href={`https://wa.me/+91${CandidateData.mobile}?text=${encodeURIComponent(message)}`} target='_blank'>Whatsapp</a>
+                                <a href={`mailto:${CandidateData.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`} target='_blank'>Gmail</a>
+                                <a href={CandidateData.linkedIn} target='_blank'>Linked In</a>
+                                <a href={CandidateData.github} target='_blank'>GitHUb</a>
+                            </div>
                         </div>
                     </div>
                 </div>

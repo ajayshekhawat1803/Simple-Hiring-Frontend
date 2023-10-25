@@ -50,7 +50,6 @@ const AddCandidate = () => {
         github: github,
         linkedIn: linkedIn,
         profilePic: profilePic,
-        projects: projects,
         qualifications: {
           secondary: { schoolName10, year10, percentage10 },
           seniorSecondary: { schoolName12, year12, percentage12 },
