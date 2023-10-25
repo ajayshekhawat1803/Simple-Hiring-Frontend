@@ -49,6 +49,7 @@ const AddCandidate = () => {
         mobile: mobile,
         github: github,
         linkedIn: linkedIn,
+        projects:projects,
         profilePic: profilePic,
         qualifications: {
           secondary: { schoolName10, year10, percentage10 },
