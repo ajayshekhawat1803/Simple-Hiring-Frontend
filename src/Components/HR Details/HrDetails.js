@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import './HrDetails.css'
+import CreaterLine from '../CreaterTAg/CreaterLine'
 
 const HrDetails = () => {
     const [HrName, setHrName] = useState("")
@@ -29,7 +30,8 @@ const HrDetails = () => {
             }
         }
     }
-    return (
+    return (<>
+
         <div className='Hr-Details-cont'>
             <form
                 onSubmit={
@@ -51,7 +53,9 @@ const HrDetails = () => {
                 </div>
                 <input type='submit' value="Submit" id='SubmitBtn' />
             </form>
+        <CreaterLine />
         </div>
+    </>
     )
 }
 
