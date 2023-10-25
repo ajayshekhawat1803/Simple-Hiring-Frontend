@@ -28,6 +28,11 @@ const AddCandidate = () => {
   const addProject = () => {
     setProjects([...projects, { projectName: '', projectLink: '' }]);
   };
+  const RemoveProject = () => {
+    const updatedProjects = [...projects];
+    updatedProjects.pop();
+    setProjects(updatedProjects);
+};
   const handleProjectChange = (value, index, field) => {
     const updatedProjects = [...projects];
     updatedProjects[index][field] = value;
@@ -69,78 +74,92 @@ const AddCandidate = () => {
       <h2>Add Candidate</h2>
       <form onSubmit={(e) => { e.preventDefault(); }}
         encType='multipart/form-data'>
-        <div className='input-cont'>
-          <label>Name</label>
-          <input type='text' autoFocus placeholder='Name of Candidate' value={name} onChange={(e) => setName(e.target.value)} />
-        </div>
-        <div className='input-cont'>
-          <label>email</label>
-          <input type='email' placeholder='Email of Candidate'
-            value={email} onChange={(e) => setEmail(e.target.value.toLocaleLowerCase())} />
-        </div>
-        <div className='input-cont'>
-          <label>Mobile</label>
-          <input type='number' placeholder='Mobile Number of Candidate'
-            value={mobile} onChange={(e) => setMobile(e.target.value)} />
-        </div>
-        <div className='input-cont'>
-          <label>category</label><select value={category} onChange={(e) => setCategory(e.target.value)}>
-            <option value="">Not Selected</option>
-            <option value="Frontend-Developers">Frontend Developers</option>
-            <option value="Backend-Developers">Backend Developers </option>
-            <option value="Full-Stack-Developers">Full Stack Developers</option>
-            <option value="Ui-Ux-Designers">UI/UX Designers</option>
-          </select>
-        </div>
-        <div className='input-cont'>
-          <label>Skills</label>
-          <input type='text' placeholder='Separate skills by ","' value={skillss} onChange={(e) => setskills(e.target.value)}
-            onBlur={(e) => {
-              setskillsArray(skillss.split(","));
-            }} />
-        </div>
-        <div className='input-cont'>
-          <label>ProfilePic</label>
-          <input type='file' onChange={(e) => setProfilePic(e.target.files[0])} />
-        </div>
-        <div className='input-cont'>
-          <label>GitHub Link</label>
-          <input type='text' placeholder='Your Github Profile Link'
-            value={github} onChange={(e) => setGithub(e.target.value)} />
-        </div>
-        <div className='input-cont'>
-          <label>Linked In </label>
-          <input type='text' placeholder='Your LinkedIn Profile Link'
-            value={linkedIn} onChange={(e) => setLinkedIn(e.target.value)} />
+        <div>
+          <h2>Personal Details</h2>
+          <div className='res-box'>
+            <div className='input-cont'>
+              <label>Name</label>
+              <input type='text' autoFocus required placeholder='Name of Candidate' value={name} onChange={(e) => setName(e.target.value)} />
+            </div>
+            <div className='input-cont'>
+              <label>Email</label>
+              <input type='email' placeholder='Email of Candidate' required
+                value={email} onChange={(e) => setEmail(e.target.value.toLocaleLowerCase())} />
+            </div>
+          </div>
+          <div className='res-box'>
+            <div className='input-cont'>
+              <label>Mobile</label>
+              <input type='number' placeholder='Mobile Number of Candidate' required
+                value={mobile} onChange={(e) => setMobile(e.target.value)} />
+            </div>
+            <div className='input-cont'>
+              <label>Category</label>
+              <select required value={category} onChange={(e) => setCategory(e.target.value)}>
+                <option value="">Not Selected</option>
+                <option value="Frontend-Developers">Frontend Developers</option>
+                <option value="Backend-Developers">Backend Developers </option>
+                <option value="Full-Stack-Developers">Full Stack Developers</option>
+                <option value="Ui-Ux-Designers">UI/UX Designers</option>
+              </select>
+            </div>
+          </div>
+          <div className='res-box'>
+            <div className='input-cont'>
+              <label>GitHub Link</label>
+              <input type='text' placeholder='Your Github Profile Link'required
+                value={github} onChange={(e) => setGithub(e.target.value)} />
+            </div>
+            <div className='input-cont'>
+              <label>Linked In </label>
+              <input type='text' placeholder='Your LinkedIn Profile Link' required
+                value={linkedIn} onChange={(e) => setLinkedIn(e.target.value)} />
+            </div>
+          </div>
+          <div className='res-box'>
+            <div className='input-cont'>
+              <label>Skills</label>
+              <input type='text' placeholder='Separate skills by ","' required value={skillss} onChange={(e) => setskills(e.target.value)}
+                onBlur={(e) => {
+                  setskillsArray(skillss.split(","));
+                }} />
+            </div>
+            <div className='input-cont'>
+              <label>ProfilePic</label>
+              <input type='file' required onChange={(e) => setProfilePic(e.target.files[0])} />
+            </div>
+          </div>
         </div>
 
         <div>
-          <h3>Add Projects</h3>
+          <h2>Add Projects</h2>
           {projects.map((project, index) => {
             return (
-              <div key={index}>
+              <div key={index} className='res-box'>
                 <input
                   type="text"
                   placeholder="Project Name"
+                  required
                   value={project.projectName}
                   onChange={(e) => handleProjectChange(e.target.value, index, 'projectName')}
                 />
                 <input
                   type="text"
                   placeholder="Project Link"
+                  required
                   value={project.projectLink}
                   onChange={(e) => handleProjectChange(e.target.value, index, 'projectLink')}
                 />
               </div>
             )
           })}
-          <button onClick={addProject}>Add New Project</button>
-          <button onClick={() => console.log(projects)}>Show Data</button>
+          <button onClick={addProject} id='AddNewProject'>Add New Project</button>
+          <button onClick={RemoveProject} id='AddNewProject'>Remove Last Project</button>
         </div>
 
         <div className='qualifications'>
           <h2>Qualification Details</h2>
-          <h4>10th</h4>
+          <h4 className='edu'>10th</h4>
           <div className='input-cont'>
             <label>School Name</label>
             <input type='text' placeholder='School Name' value={schoolName10} onChange={(e) => setschoolName10(e.target.value)} />
@@ -153,7 +172,7 @@ const AddCandidate = () => {
             <label>Percentage</label>
             <input type='number' placeholder='Percentage Achieved' value={percentage10} onChange={(e) => setpercentage10(e.target.value)} />
           </div>
-          <h4>12th</h4>
+          <h4 className='edu'>12th</h4>
           <div className='input-cont'>
             <label>School Name</label>
             <input type='text' placeholder='School Name' value={schoolName12} onChange={(e) => setschoolName12(e.target.value)} />
@@ -166,9 +185,9 @@ const AddCandidate = () => {
             <label>Percentage</label>
             <input type='number' placeholder='Percentage Achieved' value={percentage12} onChange={(e) => setpercentage12(e.target.value)} />
           </div>
-          <h4>Graduation</h4>
+          <h4 className='edu'>Graduation</h4>
           <div className='input-cont'>
-            <label>School Name</label>
+            <label>College Name</label>
             <input type='text' placeholder='School Name' value={collegeName} onChange={(e) => setCollegeName(e.target.value)} />
           </div>
           <div className='input-cont'>
@@ -186,7 +205,7 @@ const AddCandidate = () => {
           <input type='file' onChange={(e) => setResume(e.target.files[0])} />
         </div>
 
-        <input type='submit' value="Add Candidate" onClick={HandleAddCandidate} />
+        <input type='submit' value="Add Candidate" onClick={HandleAddCandidate} id='AddCandidate'/>
       </form>
     </div>
   )

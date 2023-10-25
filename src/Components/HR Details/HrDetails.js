@@ -6,20 +6,27 @@ import './HrDetails.css'
 const HrDetails = () => {
     const [HrName, setHrName] = useState("")
     const [HrEmail, setHrEmail] = useState("")
-    const [HrCompany, setCompany] = useState("")
+    const [emailerr, setemailerr] = useState(false)
     const navigate = useNavigate()
     let Time = new Date()
     Time = Time.toString().split("GMT")[0]
 
 
     const HandleSubmit = async () => {
-        let response = await axios.post("http://localhost:4000/recruiter/info", {
-            HrName, HrEmail, HrCompany, Time
-        })
-        response = response.data;
-        if (response.token) {
-            localStorage.setItem("RecruiterInfo", JSON.stringify(response))
-            navigate("/home")
+        console.log()
+        if (HrEmail.split("@")[1] === "gmail.com" || HrEmail.split("@")[1] === "yahoo.com") {
+            setemailerr(true)
+            return false
+        }
+        else {
+            let response = await axios.post("http://localhost:4000/recruiter/info", {
+                HrName, HrEmail, Time
+            })
+            response = response.data;
+            if (response.token) {
+                localStorage.setItem("RecruiterInfo", JSON.stringify(response))
+                navigate("/home")
+            }
         }
     }
     return (
@@ -38,10 +45,9 @@ const HrDetails = () => {
                 <div className='input-cont'>
                     <label>Email</label>
                     <input type='email' required placeholder='Enter Your email' value={HrEmail} onChange={(e) => setHrEmail(e.target.value)} />
-                </div>
-                <div className='input-cont'>
-                    <label>Company</label>
-                    <input type='text' required placeholder='Your Company Name' value={HrCompany} onChange={(e) => setCompany(e.target.value)} />
+                    {
+                        emailerr && <span id='emailErr'>Enter Your Company Email</span>
+                    }
                 </div>
                 <input type='submit' value="Submit" id='SubmitBtn' />
             </form>

@@ -1,11 +1,10 @@
 .Hr-Details-cont {
     width: 100%;
     background-color: aqua;
-    height: 90vh;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    /* color: #fff; */
 }
 
 .Hr-Details-cont form {
@@ -34,6 +33,7 @@
     width: 100%;
     display: flex;
     margin: 10px 0;
+    position: relative;
 }
 
 .Hr-Details-cont .input-cont label {
@@ -63,7 +63,16 @@
     max-width: 500px;
     cursor: pointer;
 }
-
+#emailErr{
+    color: rgb(255, 0, 0);
+    font-weight: 700;
+    position: absolute;
+    bottom: -20px;
+    font-size: 1rem;
+    text-decoration: underline;
+    text-shadow: 0 0 10px white;
+    left: 25%;
+}
 @media (max-width:650px) {
     .Hr-Details-cont .input-cont {
         flex-direction: column;

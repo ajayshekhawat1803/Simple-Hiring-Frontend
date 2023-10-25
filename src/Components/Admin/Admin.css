@@ -33,28 +33,56 @@
 /* *******Admin Btm Sectipon Css******** */
 .admin .btm {
     width: 100%;
-    max-width: 700px;
+    max-width: 900px;
     margin: auto;
     border-radius: 10px;
     background-color: rgba(0, 0, 0, 0.5);
     color: #fff;
     padding: 40px;
 }
+
+.admin .btm .res-box {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 10px;
+    justify-content: space-between;
+}
+
+.admin .btm .res-box>input {
+    width: 40%;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    min-width: 300px;
+}
+
 .admin .btm .input-cont {
-   margin-bottom: 15px;
-   display: flex;
-   align-items: center;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    width: 45%;
+    min-width: 360px;
 }
+
 .admin .btm .input-cont label {
-   min-width: 150px;
+    min-width: 150px;
 }
-.admin .btm .input-cont input,.admin .btm .input-cont select {
-   flex: 1;
-   padding: 10px;
-   border: none;
-   outline: none;
+
+.admin .btm .input-cont input,
+.admin .btm .input-cont select {
+    border-radius: 4px;
+    flex: 1;
+    padding: 10px;
+    border: none;
+    outline: none;
 }
-.admin .btn .input-cont input[type="file"]{
+
+.admin .btn .input-cont input[type="file"] {
     background-color: none;
 }
 
@@ -66,7 +94,170 @@
     align-items: center;
     gap: 15px;
 }
-.addCandidate>h2{
+
+.addCandidate>h2 {
     font-size: 2rem;
     -webkit-text-stroke: 1px green;
+    border-bottom: 3px solid;
+}
+
+.addCandidate form>div>h2 {
+    text-shadow: 0px 0px 10px red;
+    margin-bottom: 30px;
+}
+
+.addCandidate form>div {
+    padding: 20px 0px;
+}
+
+.btm #AddNewProject {
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: 600;
+    background-color: rgb(146, 243, 243);
+}
+
+.addCandidate .qualifications .input-cont {
+    width: 90%;
+}
+
+.addCandidate .edu {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.btm #AddCandidate {
+    width: 100%;
+    border-radius: 7px;
+    font-size: 1rem;
+    font-weight: 800;
+    background-color: aqua;
+    color: black;
+    text-shadow: 1px 1px 7px blue;
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* *************Edit Candidate CSS************ */
+.editCandidate{
+    width: 100%;
+}
+.editCandidate .search{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+.editCandidate .search input{
+    padding: 10px;
+    min-width: 500px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+.editCandidate .search button{
+    padding: 8px;
+    border: none;
+    outline: none;
+    background-color: blue;
+    font-weight: 800;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+/* *************Visited Recruiters CSS************ */
+.visitedRecruiters {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.visitedRecruiters .recruiterBox {
+    /* border: 1px solid; */
+    width: 350px;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+}
+
+.visitedRecruiters .recruiterBox .flexContent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.visitedRecruiters .recruiterBox h1 {
+    font-size: 1rem;
+    text-overflow: ellipsis;
+    min-width: 110px;
+}
+
+.visitedRecruiters .recruiterBox h2 {
+    font-size: 1.05rem;
+    text-overflow: ellipsis;
+    flex: 1;
+}
+
+.visitedRecruiters .recruiterBox .flexContent:last-child h2 {
+    font-size: 0.8rem;
+}
+
+
+
+/* ***********Media Queries********* */
+@media (max-width:920px) {
+    .admin .btm .input-cont {
+        width: 95%;
+    }
+    .admin .top {
+        margin: 40px 0;
+    }
+    .admin .top a {
+        font-size: 1rem;
+        width: fit-content;
+    }
+}
+
+@media (max-width:620px) {
+    .admin .btm .input-cont {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .admin .btm .input-cont input,
+    .admin .btm .input-cont select {
+        width: 100%;
+        margin-top: 5px;
+    }
+    .admin .btm .res-box {
+        gap: 15px;
+    }
+    .admin .btm .res-box>input {
+        width: 100%;
+    }
+    .admin {
+        padding: 100px 20px;
+    }
+    .admin .top {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .admin .top a {
+        width: 300px;
+        margin-bottom: 10px;
+    }
+    .admin .btm .input-cont {
+        min-width: unset;
+    }
+}
+
+@media (max-width:420px) {
+    .admin .top a {
+        width: 270px;
+    }
 }

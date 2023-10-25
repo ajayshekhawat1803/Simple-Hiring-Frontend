@@ -6,7 +6,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     color: #fff;
-    padding: 100px 40px;
+    padding: 100px 40px 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -49,8 +49,8 @@
 }
 
 .show .candidate {
-    width: 45%;
-    min-width: 400px;
+    width: 90%;
+    max-width: 600px;
     display: flex;
     background-color: #e0e0e0;
     color: #000;
@@ -84,7 +84,7 @@
 
 .show .candidate .right h3 {
     color: red;
-    text-shadow: 0px 0px 10px blue;
+    text-shadow: 0px 0px 10px white;
     margin-bottom: 15px;
     text-decoration: underline;
 }
@@ -112,4 +112,50 @@
 }
 .show .candidate .right button:hover{
    background-color: rgb(54, 54, 247);
+}
+
+
+@media (max-width:700px) {
+    .show{
+        padding: 100px 0px 0px;
+    }
+}
+@media (max-width:600px) {
+    .show{
+        padding: 100px 0px 0px;
+    }
+    .show .candidate .left img {
+        height: 170px;
+    }
+}
+@media (max-width:550px) {
+    .show .cat-cont {
+        flex-direction: column;
+    }
+    .show .cat-cont>label {
+        font-size: 1.5rem;
+    }
+    .show .cat-cont>select {
+        width: 100%;
+    }
+    .show{
+        padding: 100px 0px 0px;
+    }
+    .show .candidate .left img {
+        height: 170px;
+    }
+    .show .candidate{
+        flex-direction: column;
+    }
+    .show .candidate .left {
+        width: 100%;
+        border: none;
+        border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+    }
+    .show .candidate .right {
+        width: 100%;
+    }
+    .show .candidate .left img {
+        height: 220px;
+    }
 }

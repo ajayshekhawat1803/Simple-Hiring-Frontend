@@ -7,9 +7,10 @@ const Home = () => {
     useEffect(() => {
         const auth = localStorage.getItem("RecruiterInfo")
         if (!auth) {
+            alert("PLzz Enter Your Details First")
             navigate("/")
         }
-    }, [])
+    })
     return (
         <div className='home'>
             <h2>Select From These Categories</h2>

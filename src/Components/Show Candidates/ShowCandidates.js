@@ -13,13 +13,12 @@ const ShowCandidates = () => {
 
     useEffect(() => {
         getCandidateDetails()
-        console.log(category);
     }, []);
     useEffect(() => {
-        setShowCandidates(category == "All" ?
+        setShowCandidates(category === "All" ?
             AllCandidates
             : AllCandidates.filter((candidate) => {
-                return candidate.category == category ? candidate : null
+                return candidate.category === category ? candidate : null
             })
         )
     }, [category])
@@ -44,7 +43,7 @@ const ShowCandidates = () => {
                 </select>
             </div>
             <div className='candidates'>
-                {
+                {ShowCandidates.length>0?
                     ShowCandidates.map((candidate) => {
                         return (
                             <div className='candidate' key={candidate._id}>
@@ -69,6 +68,7 @@ const ShowCandidates = () => {
                             </div>
                         )
                     })
+                    :<h2>No Candidate Available</h2>
                 }
 
 
