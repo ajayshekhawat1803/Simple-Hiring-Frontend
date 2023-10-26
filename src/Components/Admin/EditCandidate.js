@@ -163,14 +163,14 @@ const EditCandidate = () => {
                                 </div>
                                 <div className='res-box'>
                                     <div className='input-cont'>
-                                        <label>GitHub Link</label>
-                                        <input type='text' placeholder='Your Github Profile Link'
-                                            value={github} onChange={(e) => setGithub(e.target.value)} />
+                                        <label>GitHub Username</label>
+                                        <input type='text' placeholder='Your Github Username'
+                                            value={github} onChange={(e) => setGithub(e.target.value.trim())} />
                                     </div>
                                     <div className='input-cont'>
-                                        <label>Linked In </label>
-                                        <input type='text' placeholder='Your LinkedIn Profile Link'
-                                            value={linkedIn} onChange={(e) => setLinkedIn(e.target.value)} />
+                                        <label>LinkedIn Username</label>
+                                        <input type='text' placeholder='Your LinkedIn Username'
+                                            value={linkedIn} onChange={(e) => setLinkedIn(e.target.value.trim())} />
                                     </div>
                                 </div>
                                 <div className='res-box'>
@@ -197,12 +197,14 @@ const EditCandidate = () => {
                                                 type="text"
                                                 placeholder="Project Name"
                                                 value={project.projectName}
+                                                required
                                                 onChange={(e) => handleProjectChange(e.target.value, index, 'projectName')}
                                             />
                                             <input
                                                 type="text"
                                                 placeholder="Project Link"
                                                 value={project.projectLink}
+                                                required
                                                 onChange={(e) => handleProjectChange(e.target.value, index, 'projectLink')}
                                             />
                                         </div>
@@ -214,32 +216,7 @@ const EditCandidate = () => {
 
                             <div className='qualifications'>
                                 <h2>Qualification Details</h2>
-                                <h4 className='edu'>10th</h4>
-                                <div className='input-cont'>
-                                    <label>School Name</label>
-                                    <input type='text' placeholder='School Name' value={schoolName10} onChange={(e) => setschoolName10(e.target.value)} />
-                                </div>
-                                <div className='input-cont'>
-                                    <label>Passing Year</label>
-                                    <input type='number' placeholder='Year Passed' value={year10} onChange={(e) => setyear10(e.target.value)} />
-                                </div>
-                                <div className='input-cont'>
-                                    <label>Percentage</label>
-                                    <input type='number' placeholder='Percentage Achieved' value={percentage10} onChange={(e) => setpercentage10(e.target.value)} />
-                                </div>
-                                <h4 className='edu'>12th</h4>
-                                <div className='input-cont'>
-                                    <label>School Name</label>
-                                    <input type='text' placeholder='School Name' value={schoolName12} onChange={(e) => setschoolName12(e.target.value)} />
-                                </div>
-                                <div className='input-cont'>
-                                    <label>Passing Year</label>
-                                    <input type='number' placeholder='Year Passed' value={year12} onChange={(e) => setyear12(e.target.value)} />
-                                </div>
-                                <div className='input-cont'>
-                                    <label>Percentage</label>
-                                    <input type='number' placeholder='Percentage Achieved' value={percentage12} onChange={(e) => setpercentage12(e.target.value)} />
-                                </div>
+
                                 <h4 className='edu'>Graduation</h4>
                                 <div className='input-cont'>
                                     <label>School Name</label>
@@ -253,6 +230,34 @@ const EditCandidate = () => {
                                     <label>Percentage</label>
                                     <input type='number' placeholder='Percentage Achieved' value={percentage} onChange={(e) => setPercentage(e.target.value)} />
                                 </div>
+
+                                <h4 className='edu'>12th</h4>
+                                <div className='input-cont'>
+                                    <label>School Name</label>
+                                    <input type='text' placeholder='School Name' value={schoolName12} onChange={(e) => setschoolName12(e.target.value)} />
+                                </div>
+                                <div className='input-cont'>
+                                    <label>Passing Year</label>
+                                    <input type='number' placeholder='Year Passed' value={year12} onChange={(e) => setyear12(e.target.value)} />
+                                </div>
+                                <div className='input-cont'>
+                                    <label>Percentage</label>
+                                    <input type='number' placeholder='Percentage Achieved' value={percentage12} onChange={(e) => setpercentage12(e.target.value)} />
+                                </div>
+
+                                <h4 className='edu'>10th</h4>
+                                <div className='input-cont'>
+                                    <label>School Name</label>
+                                    <input type='text' placeholder='School Name' value={schoolName10} onChange={(e) => setschoolName10(e.target.value)} />
+                                </div>
+                                <div className='input-cont'>
+                                    <label>Passing Year</label>
+                                    <input type='number' placeholder='Year Passed' value={year10} onChange={(e) => setyear10(e.target.value)} />
+                                </div>
+                                <div className='input-cont'>
+                                    <label>Percentage</label>
+                                    <input type='number' placeholder='Percentage Achieved' value={percentage10} onChange={(e) => setpercentage10(e.target.value)} />
+                                </div>
                             </div>
 
                             <div className='input-cont'>
@@ -260,7 +265,20 @@ const EditCandidate = () => {
                                 <input type='file' onChange={(e) => setResume(e.target.files[0])} />
                             </div>
 
-                            <input type='submit' value="Update Details" id='AddCandidate' onClick={HandleUpdateData} />
+                            <input type='submit' value="Update Details" id='AddCandidate' onClick={() => {
+                                //Checking All Values
+                                if (name && email && category && skills && profilePic && mobile && github && linkedIn && schoolName10 && year10 && percentage10 && schoolName12 && year12 && percentage12 && collegeName && year && percentage) {
+                                    //Checking if all projects have their names and links
+                                    const condition = projects.filter((project) => {
+                                        return project.projectName === "" || project.projectLink === "" ? project : null
+                                    })
+                                    if (condition.length) {
+                                        return false        // Function Execution terminated if any project is left empty
+                                    }
+                                    HandleUpdateData()
+                                }
+                            }
+                            } />
                         </form>
                     </div>
                 </>

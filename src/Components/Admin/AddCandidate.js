@@ -32,7 +32,7 @@ const AddCandidate = () => {
     const updatedProjects = [...projects];
     updatedProjects.pop();
     setProjects(updatedProjects);
-};
+  };
   const handleProjectChange = (value, index, field) => {
     const updatedProjects = [...projects];
     updatedProjects[index][field] = value;
@@ -49,7 +49,7 @@ const AddCandidate = () => {
         mobile: mobile,
         github: github,
         linkedIn: linkedIn,
-        projects:projects,
+        projects: projects,
         profilePic: profilePic,
         qualifications: {
           secondary: { schoolName10, year10, percentage10 },
@@ -68,6 +68,7 @@ const AddCandidate = () => {
     } else {
       alert("Ooops!! Something Went wrong")
     }
+
   }
   return (
     <div className='addCandidate'>
@@ -106,14 +107,14 @@ const AddCandidate = () => {
           </div>
           <div className='res-box'>
             <div className='input-cont'>
-              <label>GitHub Link</label>
-              <input type='text' placeholder='Your Github Profile Link'required
-                value={github} onChange={(e) => setGithub(e.target.value)} />
+              <label>GitHub Username</label>
+              <input type='text' placeholder='Your Github Username' required
+                value={github} onChange={(e) => setGithub(e.target.value.trim())} />
             </div>
             <div className='input-cont'>
-              <label>Linked In </label>
-              <input type='text' placeholder='Your LinkedIn Profile Link' required
-                value={linkedIn} onChange={(e) => setLinkedIn(e.target.value)} />
+              <label>LinkedIn Username</label>
+              <input type='text' placeholder='Your LinkedIn Username' required
+                value={linkedIn} onChange={(e) => setLinkedIn(e.target.value.trim())} />
             </div>
           </div>
           <div className='res-box'>
@@ -159,32 +160,7 @@ const AddCandidate = () => {
 
         <div className='qualifications'>
           <h2>Qualification Details</h2>
-          <h4 className='edu'>10th</h4>
-          <div className='input-cont'>
-            <label>School Name</label>
-            <input type='text' placeholder='School Name' value={schoolName10} onChange={(e) => setschoolName10(e.target.value)} />
-          </div>
-          <div className='input-cont'>
-            <label>Passing Year</label>
-            <input type='number' placeholder='Year Passed' value={year10} onChange={(e) => setyear10(e.target.value)} />
-          </div>
-          <div className='input-cont'>
-            <label>Percentage</label>
-            <input type='number' placeholder='Percentage Achieved' value={percentage10} onChange={(e) => setpercentage10(e.target.value)} />
-          </div>
-          <h4 className='edu'>12th</h4>
-          <div className='input-cont'>
-            <label>School Name</label>
-            <input type='text' placeholder='School Name' value={schoolName12} onChange={(e) => setschoolName12(e.target.value)} />
-          </div>
-          <div className='input-cont'>
-            <label>Passing Year</label>
-            <input type='number' placeholder='Year Passed' value={year12} onChange={(e) => setyear12(e.target.value)} />
-          </div>
-          <div className='input-cont'>
-            <label>Percentage</label>
-            <input type='number' placeholder='Percentage Achieved' value={percentage12} onChange={(e) => setpercentage12(e.target.value)} />
-          </div>
+
           <h4 className='edu'>Graduation</h4>
           <div className='input-cont'>
             <label>College Name</label>
@@ -198,6 +174,34 @@ const AddCandidate = () => {
             <label>Percentage</label>
             <input type='number' placeholder='Percentage Achieved' value={percentage} onChange={(e) => setPercentage(e.target.value)} />
           </div>
+
+          <h4 className='edu'>12th</h4>
+          <div className='input-cont'>
+            <label>School Name</label>
+            <input type='text' placeholder='School Name' value={schoolName12} onChange={(e) => setschoolName12(e.target.value)} />
+          </div>
+          <div className='input-cont'>
+            <label>Passing Year</label>
+            <input type='number' placeholder='Year Passed' value={year12} onChange={(e) => setyear12(e.target.value)} />
+          </div>
+          <div className='input-cont'>
+            <label>Percentage</label>
+            <input type='number' placeholder='Percentage Achieved' value={percentage12} onChange={(e) => setpercentage12(e.target.value)} />
+          </div>
+
+          <h4 className='edu'>10th</h4>
+          <div className='input-cont'>
+            <label>School Name</label>
+            <input type='text' placeholder='School Name' value={schoolName10} onChange={(e) => setschoolName10(e.target.value)} />
+          </div>
+          <div className='input-cont'>
+            <label>Passing Year</label>
+            <input type='number' placeholder='Year Passed' value={year10} onChange={(e) => setyear10(e.target.value)} />
+          </div>
+          <div className='input-cont'>
+            <label>Percentage</label>
+            <input type='number' placeholder='Percentage Achieved' value={percentage10} onChange={(e) => setpercentage10(e.target.value)} />
+          </div>
         </div>
 
         <div className='input-cont'>
@@ -205,7 +209,19 @@ const AddCandidate = () => {
           <input type='file' onChange={(e) => setResume(e.target.files[0])} />
         </div>
 
-        <input type='submit' value="Add Candidate" onClick={HandleAddCandidate} id='AddCandidate'/>
+        <input type='submit' value="Add Candidate" onClick={() => {
+          //Checking All Values
+          if (name && email && category && skills && profilePic && mobile && github && linkedIn && schoolName10 && year10 && percentage10 && schoolName12 && year12 && percentage12 && collegeName && year && percentage) {
+            //Checking if all projects have their names and links
+            const condition = projects.filter((project) => {
+              return project.projectName === "" || project.projectLink === "" ? project : null
+            })
+            if (condition.length) {
+              return false        // Function Execution terminated if any project is left empty
+            }
+            HandleAddCandidate()
+          }
+        }} id='AddCandidate' />
       </form>
     </div>
   )
