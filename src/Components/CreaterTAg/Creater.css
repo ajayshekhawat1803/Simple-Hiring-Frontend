@@ -1,5 +1,5 @@
 .createrLine {
-    position: absolute;
+    position: fixed;
     display: flex;
     text-wrap: nowrap;
     height: 55px;
@@ -7,7 +7,7 @@
     background-color: rgba(0, 0, 0, 0.5);
     color: #fff;
     padding: 10px;
-    bottom: 50px;
+    bottom: 5vh;
 }
 
 .createrLine h2 {
