@@ -102,13 +102,14 @@
 
 .addCandidate>h2 {
     font-size: 2rem;
-    -webkit-text-stroke: 1px green;
-    border-bottom: 3px solid;
+    /* -webkit-text-stroke: 1px green; */
+    /* border-bottom: 3px solid; */
 }
 
 .addCandidate form>div>h2 {
-    text-shadow: 0px 0px 10px red;
+    /* text-shadow: 0px 0px 10px red; */
     margin-bottom: 30px;
+    color: blue;
 }
 
 .addCandidate form>div {
@@ -139,7 +140,6 @@
     font-weight: 800;
     background-color: aqua;
     color: black;
-    text-shadow: 1px 1px 7px blue;
     padding: 10px;
     cursor: pointer;
 }

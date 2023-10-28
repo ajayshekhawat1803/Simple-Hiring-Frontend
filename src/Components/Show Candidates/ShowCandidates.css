@@ -7,7 +7,7 @@
     font-family: 'Playpen Sans', cursive;
 
     min-height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    background: linear-gradient(rgba(0, 0, 0, 0.562), rgba(0, 0, 0, 0.536), rgba(0, 0, 0, 0.349)), url("https://www.freecodecamp.org/news/content/images/2022/03/pexels-janko-ferlic-590493.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -26,7 +26,7 @@
     border-radius: 12px;
     padding: 10px 30px;
     background-color: rgba(0, 0, 0, 0.5);
-    box-shadow: 0px 0px 10px aqua;
+    box-shadow: 0px 0px 10px white;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -80,7 +80,7 @@
     font-size: 1.5rem;
     margin: 10px auto;
     width: fit-content;
-    border-bottom: 3px solid red;
+
 }
 
 .show .candidate .right {
@@ -89,10 +89,10 @@
 }
 
 .show .candidate .right h3 {
-    color: red;
+    color:black;
     text-shadow: 0px 0px 10px white;
     margin-bottom: 15px;
-    text-decoration: underline;
+    
 }
 
 .show .candidate .right h4 {
