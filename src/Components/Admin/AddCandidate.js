@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 
+
 const AddCandidate = () => {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")

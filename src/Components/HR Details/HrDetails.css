@@ -1,6 +1,6 @@
 .Hr-Details-cont {
     width: 100%;
-    background-color: aqua;
+    /* background-color: aqua; */
     height: 100vh;
     display: flex;
     align-items: center;
@@ -24,9 +24,9 @@
     font-size: 2rem;
     margin-bottom: 20px;
     width: fit-content;
-    border-bottom: 5px solid blue;
+    /* border-bottom: 5px solid white;
     -webkit-text-stroke: 1px yellow;
-    color: red;
+    color:black; */
 }
 
 .Hr-Details-cont .input-cont {
