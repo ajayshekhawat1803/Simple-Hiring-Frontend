@@ -1,5 +1,12 @@
+
+
+  @import url('https://fonts.googleapis.com/css2?family=Playpen+Sans&display=swap');
+
+
+
 .Hr-Details-cont {
   width: 100%;
+  font-family: 'Playpen Sans', cursive;
   background: #616161; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to right,
@@ -35,9 +42,9 @@
   font-size: 2rem;
   margin-bottom: 20px;
   width: fit-content;
-  border-bottom: 5px solid blue;
+  /* border-bottom: 5px solid blue; */
   -webkit-text-stroke: 1px yellow;
-  color: red;
+  /* color: red; */
 }
 
 .Hr-Details-cont .input-cont {

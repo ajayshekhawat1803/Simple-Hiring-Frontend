@@ -1,5 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Playpen+Sans&display=swap');
+
+
+
 .home {
     width: 100%;
+    font-family: 'Playpen Sans', cursive;
     min-height: 100vh;
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../../Assests/img1.jpg");
     background-position: top;

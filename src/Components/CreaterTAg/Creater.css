@@ -1,4 +1,9 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Playpen+Sans&display=swap');
+
 .createrLine {
+    font-family: 'Playpen Sans', cursive;
+
     position: fixed;
     display: flex;
     text-wrap: nowrap;
@@ -13,6 +18,7 @@
 .createrLine h2 {
     /* width: 100%; */
     width: fit-content;
+
     overflow: hidden;
     display: flex;
     gap: 20px;
