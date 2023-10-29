@@ -8,16 +8,16 @@
 }
 
 .Hr-Details-cont form {
-    width: 90%;
-    min-width: 300px;
-    max-width: 700px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 50px;
-    border-radius: 12px;
-    background-color: rgba(0, 0, 0, 0.3);
-    box-shadow: 0px 0px 5px green, 0px 0px 5px red;
+  width: 90%;
+  min-width: 300px;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+  border-radius: 12px;
+  background-color: rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 5px green, 0px 0px 5px red;
 }
 
 .Hr-Details-cont form>h2 {
@@ -30,65 +30,65 @@
 }
 
 .Hr-Details-cont .input-cont {
-    width: 100%;
-    display: flex;
-    margin: 10px 0;
-    position: relative;
+  width: 100%;
+  display: flex;
+  margin: 10px 0;
+  position: relative;
 }
 
 .Hr-Details-cont .input-cont label {
-    min-width: 130px;
-    font-weight: 800;
+  min-width: 130px;
+  font-weight: 800;
 }
 
 .Hr-Details-cont .input-cont input {
-    flex: 1;
-    border: 1px solid;
-    outline: none;
-    padding: 10px;
-    font-size: 1rem;
+  flex: 1;
+  border: 1px solid;
+  outline: none;
+  padding: 10px;
+  font-size: 1rem;
 }
 
 .Hr-Details-cont form #SubmitBtn {
-    width: 80%;
-    padding: 10px;
-    font-size: 1rem;
-    font-weight: 800;
-    border: none;
-    outline: none;
-    margin-top: 20px;
-    border-radius: 6px;
-    color: #fff;
-    background-color: blue;
-    max-width: 500px;
-    cursor: pointer;
+  width: 80%;
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: 800;
+  border: none;
+  outline: none;
+  margin-top: 20px;
+  border-radius: 6px;
+  color: #fff;
+  background-color: blue;
+  max-width: 500px;
+  cursor: pointer;
 }
-#emailErr{
-    color: rgb(255, 0, 0);
-    font-weight: 700;
-    position: absolute;
-    bottom: -20px;
-    font-size: 1rem;
-    text-decoration: underline;
-    text-shadow: 0 0 10px white;
-    left: 25%;
+#emailErr {
+  color: rgb(255, 0, 0);
+  font-weight: 700;
+  position: absolute;
+  bottom: -20px;
+  font-size: 1rem;
+  text-decoration: underline;
+  text-shadow: 0 0 10px white;
+  left: 25%;
 }
-@media (max-width:650px) {
-    .Hr-Details-cont .input-cont {
-        flex-direction: column;
-    }
+@media (max-width: 650px) {
+  .Hr-Details-cont .input-cont {
+    flex-direction: column;
+  }
 
-    .Hr-Details-cont form {
-        width: 90%;
-        padding: 40px 15px;
-    }
+  .Hr-Details-cont form {
+    width: 90%;
+    padding: 40px 15px;
+  }
 
-    .Hr-Details-cont .input-cont label {
-        margin-bottom: 5px;
-    }
-    
-.Hr-Details-cont form #SubmitBtn {
+  .Hr-Details-cont .input-cont label {
+    margin-bottom: 5px;
+  }
+
+  .Hr-Details-cont form #SubmitBtn {
     width: 100%;
     flex: 1;
-}
+  }
 }
