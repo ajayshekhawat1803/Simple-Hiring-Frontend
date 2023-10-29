@@ -11,6 +11,7 @@ import EditCandidate from './Components/Admin/EditCandidate';
 import VisitedRecruiters from './Components/Admin/VisitedRecruiters';
 import CandidateData from './Components/Candidate Data/CandidateData';
 
+
 function App() {
   return (
     <>

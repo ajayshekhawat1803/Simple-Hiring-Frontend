@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Playpen+Sans&display=swap');
+
+
 header {
-     width: 100%;
+    width: 100%;
     height: 70px;
     background-color: rgba(0, 0, 0, 0.7);
     display: flex;
