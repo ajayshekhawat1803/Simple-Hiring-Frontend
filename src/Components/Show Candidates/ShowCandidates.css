@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@300&display=swap');
+
 .show {
+    font-family: 'Playpen Sans', cursive;
     width: 100%;
     min-height: 100vh;
     background: linear-gradient(rgba(0, 0, 0, 0.562), rgba(0, 0, 0, 0.536), rgba(0, 0, 0, 0.349)), url("https://www.freecodecamp.org/news/content/images/2022/03/pexels-janko-ferlic-590493.jpg");

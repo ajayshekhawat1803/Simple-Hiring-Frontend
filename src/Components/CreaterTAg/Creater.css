@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@300&display=swap');
+
 .createrLine {
+    font-family: 'Playpen Sans', cursive;
     position: fixed;
     display: flex;
     text-wrap: nowrap;
