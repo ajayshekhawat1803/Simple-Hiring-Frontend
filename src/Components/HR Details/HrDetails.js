@@ -4,6 +4,7 @@ import axios from 'axios'
 import './HrDetails.css'
 import CreaterLine from '../CreaterTAg/CreaterLine'
 
+
 const HrDetails = () => {
     const [HrName, setHrName] = useState("")
     const [HrEmail, setHrEmail] = useState("")

@@ -1,12 +1,28 @@
-@import url('https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@300&display=swap');
+
+
+  @import url('https://fonts.googleapis.com/css2?family=Playpen+Sans&display=swap');
+
+
 
 .Hr-Details-cont {
-    width: 100%;
-    /* background-color: aqua; */
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width: 100%;
+  font-family: 'Playpen Sans', cursive;
+  background: #616161; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #9bc5c3,
+    #616161
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #9bc5c3,
+    #616161
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .Hr-Details-cont form {
@@ -22,13 +38,13 @@
   box-shadow: 0px 0px 5px green, 0px 0px 5px red;
 }
 
-.Hr-Details-cont form>h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    width: fit-content;
-    /* border-bottom: 5px solid white;
-    -webkit-text-stroke: 1px yellow;
-    color:black; */
+.Hr-Details-cont form > h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  width: fit-content;
+  /* border-bottom: 5px solid blue; */
+  -webkit-text-stroke: 1px yellow;
+  /* color: red; */
 }
 
 .Hr-Details-cont .input-cont {
