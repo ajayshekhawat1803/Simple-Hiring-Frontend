@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import './HrDetails.css'
 import CreaterLine from '../CreaterTAg/CreaterLine'
+import { context } from '../../App'
 
 
 const HrDetails = () => {
@@ -10,6 +11,8 @@ const HrDetails = () => {
     const [HrEmail, setHrEmail] = useState("")
     const [emailerr, setemailerr] = useState(false)
     const navigate = useNavigate()
+    const { serverLink } = useContext(context)
+
     let Time = new Date()
     Time = Time.toString().split("GMT")[0]
 
@@ -21,8 +24,10 @@ const HrDetails = () => {
             return false
         }
         else {
-            let response = await axios.post("http://localhost:4000/recruiter/info", {
-                HrName, HrEmail, Time
+            const liked = { key: "value" };
+            const shortlisted = []
+            let response = await axios.post(`${serverLink}/recruiter/info`, {
+                HrName, HrEmail, Time, liked, shortlisted
             })
             response = response.data;
             if (response.token) {
@@ -54,7 +59,7 @@ const HrDetails = () => {
                 </div>
                 <input type='submit' value="Submit" id='SubmitBtn' />
             </form>
-        <CreaterLine />
+            <CreaterLine />
         </div>
     </>
     )

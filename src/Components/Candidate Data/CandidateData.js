@@ -1,16 +1,18 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './CandidateData.css'
 import axios from 'axios'
+import { context } from '../../App'
 
 const CandidateData = () => {
     const [CandidateData, setCandidateData] = useState({})
     useEffect(() => {
         getCandidateData()
     }, [])
+    const { serverLink } = useContext(context)
 
     const getCandidateData = async () => {
         const Candidate_Id = window.location.href.split("/candidate/")[1]
-        let response = await axios.get(`http://localhost:4000/home/candidate/${Candidate_Id}`)
+        let response = await axios.get(`${serverLink}/home/candidate/${Candidate_Id}`)
         response = response.data
         setCandidateData(response[0])
         console.log(response);
@@ -25,7 +27,7 @@ const CandidateData = () => {
                     <div className='top'>
                         <img
                             src={CandidateData.profilePic ?
-                                `http://localhost:4000/uploads/Candidates/${CandidateData.profilePic.filename}`
+                                `${serverLink}/uploads/Candidates/${CandidateData.profilePic.filename}`
                                 : ""
                             } alt='Failed to Load Image' />
                         <div>
@@ -95,7 +97,7 @@ const CandidateData = () => {
                                     <h3>{CandidateData.qualifications ? CandidateData.qualifications.seniorSecondary.percentage12 : ""}%</h3>
                                 </div>
                             </div>
-                            
+
                             <div>
                                 <h2>10th</h2>
                                 <div className='qual-cont'>

@@ -15,26 +15,25 @@ header {
 }
 
 header .logo-cont {
-    width: 70px;
+    width: 140px;
     height: 60px;
     overflow: hidden;
     position: relative;
-    /* border: 1px solid; */
 }
 
 header .logo-cont img {
-    /* border: 1px solid; */
     transform: translate(0%, -5%);
     position: absolute;
     height: 110%;
     width: auto;
     object-fit: cover;
+    filter: invert(100%);
 }
 
 header .nav {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 20px;
     list-style: none;
 }
 

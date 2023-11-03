@@ -1,14 +1,17 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import { context } from '../../App'
 
 const AdminLogin = () => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const navigate = useNavigate()
 
+    const { serverLink } = useContext(context)
+
     const HandleLogin = async () => {
-        let response = await axios.post("http://localhost:4000/admin/login", { username, password })
+        let response = await axios.post(`${serverLink}/admin/login`, { username, password })
         response = response.data
         console.log(response);
         if (response.message === "Successful Login") {

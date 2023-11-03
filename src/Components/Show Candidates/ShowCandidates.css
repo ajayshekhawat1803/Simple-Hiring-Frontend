@@ -44,7 +44,7 @@
     border-radius: 5px;
 }
 
-.show .candidates {
+.candidates {
     width: 100%;
     display: flex;
     gap: 50px;
@@ -54,7 +54,7 @@
     justify-content: center;
 }
 
-.show .candidate {
+.candidate {
     width: 90%;
     max-width: 600px;
     display: flex;
@@ -64,47 +64,51 @@
     overflow: hidden;
 }
 
-.show .candidate .left {
+.candidate .left {
     width: 45%;
     text-align: center;
     padding-bottom: 10px;
     border-right: 2px solid rgba(0, 0, 0, 0.5);
 }
 
-.show .candidate .left img {
+.candidate .left img {
     width: 100%;
     height: 200px;
 }
 
-.show .candidate .left h2 {
+.candidate .left h2 {
     font-size: 1.5rem;
     margin: 10px auto;
     width: fit-content;
 
 }
 
-.show .candidate .right {
+.candidate .right {
     padding: 20px;
     width: 60%;
 }
 
-.show .candidate .right h3 {
+.candidate .right h3 {
     color:black;
     text-shadow: 0px 0px 10px white;
     margin-bottom: 15px;
-    
+    display: flex;
+    justify-content: space-between;
+}
+ .candidate .right h3 img {
+    width: 30px;
 }
 
-.show .candidate .right h4 {
+ .candidate .right h4 {
     color: #333;
     margin-bottom: 10px;
 }
 
-.show .candidate .right ul {
+.candidate .right ul {
     margin-left: 30px;
     margin-bottom: 25px;
 }
-.show .candidate .right button {
+ .candidate .right button {
    width: 100%;
    border: none;
    outline: none;
@@ -116,7 +120,7 @@
    font-size: 1rem;
    font-weight: 700;
 }
-.show .candidate .right button:hover{
+.candidate .right button:hover{
    background-color: rgb(54, 54, 247);
 }
 
@@ -130,7 +134,7 @@
     .show{
         padding: 100px 0px 0px;
     }
-    .show .candidate .left img {
+    .candidate .left img {
         height: 170px;
     }
 }
@@ -147,21 +151,21 @@
     .show{
         padding: 100px 0px 0px;
     }
-    .show .candidate .left img {
+   .candidate .left img {
         height: 170px;
     }
-    .show .candidate{
+    .candidate{
         flex-direction: column;
     }
-    .show .candidate .left {
+    .candidate .left {
         width: 100%;
         border: none;
         border-bottom: 2px solid rgba(0, 0, 0, 0.5);
     }
-    .show .candidate .right {
+   .candidate .right {
         width: 100%;
     }
-    .show .candidate .left img {
+    .candidate .left img {
         height: 220px;
     }
 }

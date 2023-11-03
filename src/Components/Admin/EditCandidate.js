@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import { context } from '../../App'
 
 const EditCandidate = () => {
     const [CandidateData, setCandidateData] = useState({})
@@ -29,6 +30,9 @@ const EditCandidate = () => {
     const [percentage, setPercentage] = useState("")
     const [resume, setResume] = useState(null)
 
+    const { serverLink } = useContext(context)
+
+
     // Code for Dynamic Projects 
     const [projects, setProjects] = useState([{ projectName: '', projectLink: '' }]);
     const addProject = () => {
@@ -46,7 +50,7 @@ const EditCandidate = () => {
     };
 
     const HandleCandidateDetails = async () => {
-        let response = await axios.get(`http://localhost:4000/admin/CandidateInfo/${searchId}`)
+        let response = await axios.get(`${serverLink}/admin/CandidateInfo/${searchId}`)
         response = response.data
         if (response.name) {
             setCandidateData(response)
@@ -81,7 +85,7 @@ const EditCandidate = () => {
         }
     }
     const HandleUpdateData = async () => {
-        let result = await axios.put(`http://localhost:4000/admin/edit-candidate/${searchId}`,
+        let result = await axios.put(`${serverLink}/admin/edit-candidate/${searchId}`,
             {
                 name: name,
                 email: email,

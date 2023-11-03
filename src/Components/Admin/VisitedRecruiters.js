@@ -1,13 +1,17 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { context } from '../../App'
 
 const VisitedRecruiters = () => {
     const [Recruiters, setRecruiters] = useState([])
+    
     useEffect(() => {
         getRecruiterData()
     }, [])
+    const { serverLink } = useContext(context)
+
     const getRecruiterData = async () => {
-        let result = await axios.get("http://localhost:4000/admin/RecruiterInfo")
+        let result = await axios.get(`${serverLink}/admin/RecruiterInfo`)
         result = result.data
         setRecruiters(result.reverse())
     }

@@ -1,14 +1,17 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import './ShowCandidates.css'
-
+import heart from '../../Assests/heart.png'
+import heartliked from '../../Assests/heartLiked.png'
+import { context } from '../../App'
 
 
 const ShowCandidates = () => {
     const [AllCandidates, setAllCandidates] = useState([])
     const [ShowCandidates, setShowCandidates] = useState([])
     const [category, setCategory] = useState("")
+    const { shortlisted, setshortlisted, serverLink, liked, setliked, UpdateShortlisted } = useContext(context)
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -24,11 +27,27 @@ const ShowCandidates = () => {
     }, [category])
 
     const getCandidateDetails = async () => {
-        let Response = await axios.get("http://localhost:4000/home/all-candidates")
+        let Response = await axios.get(`${serverLink}/home/all-candidates`)
         Response = Response.data
         setAllCandidates(Response)
         setCategory(window.location.href.split("/Show-Candidates/")[1])
     }
+
+    const handleLike = (candidate) => {
+        if (liked[candidate._id]) {
+            // If the candidate is already liked, remove from the shortlisted array and mark as not liked
+            setshortlisted(shortlisted.filter((cand) => cand._id !== candidate._id))
+            setliked({ ...liked, [candidate._id]: false })
+        } else {
+            // If the candidate is not liked, add to the shortlisted array and mark as liked
+            setshortlisted([...shortlisted, candidate]);
+            setliked({ ...liked, [candidate._id]: true });
+        }
+    }
+
+    useEffect(() => {
+        UpdateShortlisted()
+    }, [liked, shortlisted])
 
     return (
         <div className='show'>
@@ -43,16 +62,19 @@ const ShowCandidates = () => {
                 </select>
             </div>
             <div className='candidates'>
-                {ShowCandidates.length>0?
+                {ShowCandidates.length > 0 ?
                     ShowCandidates.map((candidate) => {
                         return (
                             <div className='candidate' key={candidate._id}>
                                 <div className='left'>
-                                    <img src={`http://localhost:4000/uploads/Candidates/${candidate.profilePic.filename}`} alt='Failed to load Image' />
+                                    <img src={`${serverLink}/uploads/Candidates/${candidate.profilePic.filename}`} alt='Failed to load Image' />
                                     <h2>{candidate.name}</h2>
                                 </div>
                                 <div className='right'>
-                                    <h3>{candidate.category}</h3>
+                                    <h3>
+                                        {candidate.category}
+                                        <img src={liked[candidate._id] ? heartliked : heart} alt='like' onClick={() => handleLike(candidate)} />
+                                    </h3>
                                     <h4>Top Skills ⬇️</h4>
                                     <ul>
                                         {
@@ -68,29 +90,8 @@ const ShowCandidates = () => {
                             </div>
                         )
                     })
-                    :<h2>No Candidate Available</h2>
+                    : <h2>No Candidate Available</h2>
                 }
-
-
-                {/*
-                 <div className='candidate'>
-                    <div className='left'>
-                        <img src='https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' alt='Failed to load Image' />
-                        <h2>Ajay Shekhawat</h2>
-                    </div>
-                    <div className='right'>
-                        <h3>Full Stack Developer</h3>
-                        <h4>Top Skills ⬇️</h4>
-                        <ul>
-                            <li>gggg</li>
-                            <li>gggg</li>
-                            <li>gggg</li>
-                            <li>gggg</li>
-                        </ul>
-                        <button>Click here to see all Details</button>
-                    </div>
-                </div> 
-                */}
             </div>
         </div>
     )

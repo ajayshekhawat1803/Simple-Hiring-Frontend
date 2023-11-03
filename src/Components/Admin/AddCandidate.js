@@ -1,5 +1,6 @@
 import axios from 'axios'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { context } from '../../App'
 
 
 const AddCandidate = () => {
@@ -23,6 +24,8 @@ const AddCandidate = () => {
   const [percentage, setPercentage] = useState("")
   const [resume, setResume] = useState(null)
 
+  const { serverLink } = useContext(context)
+
 
   // Code for Dynamic Projects 
   const [projects, setProjects] = useState([{ projectName: '', projectLink: '' }]);
@@ -41,7 +44,7 @@ const AddCandidate = () => {
   };
 
   const HandleAddCandidate = async () => {
-    let result = await axios.post("http://localhost:4000/admin/add-candidate",
+    let result = await axios.post(`${serverLink}/admin/add-candidate`,
       {
         name: name,
         email: email,

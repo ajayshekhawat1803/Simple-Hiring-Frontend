@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Playpen+Sans&display=swap');
+
+.shrl-main{
+    width: 100%;
+    min-height: 100vh;
+    background: gray;
+    padding-top: 100px;
+    padding-bottom: 20px;
+    font-family: 'Playpen Sans', cursive;
+    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("https://images.pexels.com/photos/5621952/pexels-photo-5621952.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.shrl{
+    width: 95%;
+    max-width: 800px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin: auto;
+    border-radius: 8px;
+}
+.shrl>h2{
+    text-align: center;
+    margin-bottom: 20px;
+    color: #fff;
+    text-decoration: underline;
+}
+.shrl-cand-cont{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    gap: 15px;
+}
+.shrl-cand-cont >h2{
+    color: #fff;
+}
+@media (max-width:400px) {
+    .shrl{
+        padding: 10px;
+    }
+}

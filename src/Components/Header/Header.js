@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './Header.css'
-import logo from '../../Assests/FSL_Logo.png'
+import logo from '../../Assests/logo.png'
 import { Link } from 'react-router-dom'
 
 const Header = () => {
@@ -12,7 +12,7 @@ const Header = () => {
       <nav>
         <ul className='nav'>
           <li><Link to="/home">Home</Link></li>
-          <li><Link>Categories</Link></li>
+          <li><Link to="/shorlisted">Shorlisted</Link></li>
         </ul>
       </nav>
     </header>
