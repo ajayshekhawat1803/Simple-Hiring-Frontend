@@ -21,7 +21,7 @@ function App() {
   const [shortlisted, setshortlisted] = useState([])
   const [liked, setliked] = useState({})
   const [Auth, setAuth] = useState(null)
-  const serverLink = "http://localhost:4000"
+  const serverLink = "https://simple-hiring-backend.onrender.com/"
 
 
   useEffect(() => {
@@ -35,8 +35,10 @@ function App() {
   const getRecruiterDetails = async (id) => {
     let response = await axios.get(`${serverLink}/recruiter/liked/${id}`)
     response = response.data
-    setliked(response.liked)
-    setshortlisted(response.shortlisted)
+    if (response) {
+      setliked(response.liked)
+      setshortlisted(response.shortlisted)
+    }
   }
 
   const UpdateShortlisted = async () => {
